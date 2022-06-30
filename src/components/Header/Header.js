@@ -12,13 +12,15 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import {useNavigate} from "react-router-dom";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
-const pages = ["Products", "Pricing", "Blog"];
+import {useLocation, useNavigate} from "react-router-dom";
+
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Header = () => {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -59,7 +61,7 @@ const Header = () => {
                         }}>
                         LOGO
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+                    <Box sx={{flexGrow: 1, display: {xs: "flex", md: "none"}}}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -67,7 +69,7 @@ const Header = () => {
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
                             color="inherit">
-                            <MenuIcon />
+                            <MenuIcon/>
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -84,12 +86,12 @@ const Header = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: "block", md: "none" },
+                                display: {xs: "block", md: "none"},
                             }}>
                             <MenuItem
                                 onClick={() => {
                                     handleCloseNavMenu();
-                                    navigate("/products");
+                                    navigate(location.pathname === "/products" ? `/products${window.location.search}` : "/products");
                                 }}>
                                 <Typography textAlign="center">Products</Typography>
                             </MenuItem>
@@ -102,7 +104,7 @@ const Header = () => {
                             </MenuItem>
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+                    <AdbIcon sx={{display: {xs: "flex", md: "none"}, mr: 1}}/>
                     <Typography
                         variant="h5"
                         noWrap
@@ -110,7 +112,7 @@ const Header = () => {
                         // href=""
                         sx={{
                             mr: 2,
-                            display: { xs: "flex", md: "none" },
+                            display: {xs: "flex", md: "none"},
                             flexGrow: 1,
                             fontFamily: "monospace",
                             fontWeight: 700,
@@ -120,32 +122,43 @@ const Header = () => {
                         }}>
                         LOGO
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+                    <Box sx={{flexGrow: 1, display: {xs: "none", md: "flex"}}}>
                         {/* {pages.map(page => ( */}
                         <Button
                             // key={page}
-                            onClick={() =>{handleCloseNavMenu(); navigate("/products")}}
-                            sx={{ my: 2, color: "white", display: "block" }}>
+                            onClick={() => {
+                                handleCloseNavMenu();
+                                navigate(location.pathname === "/products" ? `/products${window.location.search}` : "/products")
+                            }}
+                            sx={{my: 2, color: "white", display: "block"}}>
                             Products
                         </Button>
                         <Button
                             // key={page}
-                            onClick={() => {handleCloseNavMenu(); navigate("/add")}}
+                            onClick={() => {
+                                handleCloseNavMenu();
+                                navigate("/add")
+                            }}
 
-                            sx={{ my: 2, color: "white", display: "block" }}>
+                            sx={{my: 2, color: "white", display: "block"}}>
                             Add product
                         </Button>
                         {/* ))} */}
+
                     </Box>
 
-                    <Box sx={{ flexGrow: 0 }}>
+                    <Box sx={{flexGrow: 0}}>
+                        <IconButton onClick={() => navigate("/cart")} style={{color: "white"}}
+                                    aria-label="add to shopping cart">
+                            <AddShoppingCartIcon/>
+                        </IconButton>
                         <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                            <IconButton onClick={handleOpenUserMenu} sx={{p: 0}}>
+                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg"/>
                             </IconButton>
                         </Tooltip>
                         <Menu
-                            sx={{ mt: "45px" }}
+                            sx={{mt: "45px"}}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
                             anchorOrigin={{

@@ -1,3 +1,39 @@
 {
-  "products": []
+  "products": [
+    {
+      "title": "222",
+      "price": 3211,
+      "description": "11",
+      "image": "11",
+      "id": 1
+    },
+    {
+      "title": "KUSH",
+      "price": 1000,
+      "description": "LOH",
+      "image": "sdad",
+      "id": 2
+    },
+    {
+      "title": "Dzhalil",
+      "price": 10000,
+      "description": "Eshimbekov",
+      "image": "https://www.idlememe.com/wp-content/uploads/2021/09/chad-meme-idlememe-8-300x191.jpg",
+      "id": 3
+    },
+    {
+      "title": "maks",
+      "price": 1000,
+      "description": "ermek",
+      "image": "loh",
+      "id": 4
+    },
+    {
+      "title": "kushloh",
+      "price": 100,
+      "description": "lohotron",
+      "image": "https://upload.wikimedia.org/wikipedia/ru/e/e9/Ilim_group_logo.png",
+      "id": 5
+    }
+  ]
 }

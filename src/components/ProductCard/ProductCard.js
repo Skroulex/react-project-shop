@@ -1,14 +1,18 @@
 import React, {useContext} from 'react';
-import {Button, CardActions, CardContent, CardMedia, Typography, Card} from "@mui/material";
+import {Button, CardActions, CardContent, CardMedia, Typography, Card, IconButton} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import {productsContext} from "../../contexts/productsContext";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import {cartContext} from "../../contexts/cartContext";
+
 
 const ProductCard = ({item}) => {
+    const {addToCart} = useContext(cartContext)
     const navigate = useNavigate()
     const {deleteProduct} = useContext(productsContext)
     return (
-        <div>
-            <Card sx={{ maxWidth: 345 }}>
+        <div style={{ margin:'0 10px'}}>
+            <Card sx={{maxWidth: 345}}>
                 <CardMedia
                     component="img"
                     height="140"
@@ -24,9 +28,12 @@ const ProductCard = ({item}) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small">Edit</Button>
+                    <Button onClick={() => navigate(`/edit/${item.id}`)} size="small">Edit</Button>
                     <Button onClick={() => deleteProduct(item.id)} size="small">Delete</Button>
                     <Button onClick={() => navigate(`/details/${item.id}`)} size="small">Details</Button>
+                    <IconButton onClick={()=> addToCart(item)}>
+                        <AddShoppingCartIcon  color="primary" />
+                    </IconButton>
                 </CardActions>
             </Card>
         </div>
