@@ -1,20 +1,6 @@
 {
   "products": [
     {
-      "title": "222",
-      "price": 3211,
-      "description": "11",
-      "image": "11",
-      "id": 1
-    },
-    {
-      "title": "KUSH",
-      "price": 1000,
-      "description": "LOH",
-      "image": "sdad",
-      "id": 2
-    },
-    {
       "title": "Dzhalil",
       "price": 10000,
       "description": "Eshimbekov",
@@ -34,6 +20,27 @@
       "description": "lohotron",
       "image": "https://upload.wikimedia.org/wikipedia/ru/e/e9/Ilim_group_logo.png",
       "id": 5
+    },
+    {
+      "title": "ermek",
+      "price": 123,
+      "description": "pidor",
+      "image": "213123",
+      "id": 6
+    },
+    {
+      "title": "32132",
+      "price": 123123,
+      "description": "123123",
+      "image": "12312312",
+      "id": 7
+    },
+    {
+      "title": "Danay",
+      "price": 1000,
+      "description": "lod",
+      "image": "moh",
+      "id": 8
     }
   ]
 }

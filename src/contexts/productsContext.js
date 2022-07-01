@@ -24,7 +24,6 @@ const PRODUCTS_API = "http://localhost:8000/products"
 
 const ProductsContextProvider = ({children}) => {
     const [state, dispatch] = useReducer(reducer, INIT_STATE);
-    console.log(state)
     //Create
     async function createProduct(newProduct) {
         await axios.post(`${PRODUCTS_API}`, newProduct)
